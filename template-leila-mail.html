@@ -51,8 +51,9 @@
 
       hrStyle { label: Separator Style;properties:color hrWidth hrHeight; }
       hrStyle:preview { height: 200%; width: 200%; bottom: 20px; -ko-border-bottom: @[hrHeight]px solid @color; }
-      preheaderVisible { label: Show Preheader; extend: visible; help: Preheader block is the first one on the top of the page. It contains web version link and optionally unsubscribe link or a preheader text that will be shown as a preview on some email clients; }
+      preheaderVisible { label: Montrer le bandeau tout en haut; extend: visible; help: Preheader block is the first one on the top of the page. It contains web version link and optionally unsubscribe link or a preheader text that will be shown as a preview on some email clients; }
       bandeauVisible { label: Montrer le bandeau; extend: visible; help: Montrer ou non le bandeau qui se trouve en bas de la page; }
+      footerVisible { label: Montrer le pied de page avec infos mailings; extend: visible; help: Non visible par defaut; }
 
       /* content types */
       blocks { label: Blocks; properties: blocks[]; }
@@ -109,7 +110,7 @@
       frameTheme:preview { -ko-background-color: @[backgroundColor] }
       template preheaderText { label: Preheader; }
 
-      template { label: Page; theme: frameTheme ;properties:  preheaderVisible=true  bandeauVisible=true; version: 1.0.5; }
+      template { label: Page; theme: frameTheme ;properties:  preheaderVisible=true  bandeauVisible=true  footerVisible=false; version: 1.0.5; }
 
       footerBlock unsubscribeLinkStyle { label: Unsubscribe;  }
       footerBlock { label: Unsubscribe Block; theme: frameTheme }
@@ -1620,6 +1621,7 @@
   </table>
   </div>
 
+  <div data-ko-display="footerVisible" data-ko-wrap="false">
   <!-- footerBlock -->
   <table width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#3f3f3f"
     style="background-color: #3f3f3f; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor"  data-ko-block="footerBlock">
@@ -1643,6 +1645,7 @@
     </tr>
   </table>
   <!-- /footerBlock -->
+  </div>
 
   </center>
 </body>
